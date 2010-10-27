@@ -6,29 +6,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "Users")
 public class User
 {
     @Id
-    @GeneratedValue
-    @Column(name = "userId")
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @Column(name = "id")
     private String id;
 
-    @Column(name = "name")
+    @Column(name = "userName", nullable = false)
     private String name;
 
-    @Column(name = "passWord")
-    private String passWord;
+    @Column(name = "password")
+    private String password;
 
-    public String getPassWord()
+    public String getPassword()
     {
-        return passWord;
+        return password;
     }
 
-    public void setPassWord(String passWord)
+    public void setPassword(String password)
     {
-        this.passWord = passWord;
+        this.password = password;
     }
 
     public void setId(String id)

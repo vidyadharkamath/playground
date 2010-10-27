@@ -28,7 +28,7 @@ public class UserRegistrationHandler implements Controller
 
         User user = new User();
         user.setName("Vidyadhar");
-        user.setPassWord("MyPass");
+        user.setPassword("MyPass");
         em.persist(user);
         em.close();
         emf.close();

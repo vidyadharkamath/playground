@@ -1,4 +1,5 @@
 package com.vidya.dao;
+
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -13,7 +14,6 @@ import com.vidya.model.User;
 @Transactional
 public class UserDAOImpl implements UserDAO
 {
-
     private HibernateTemplate hibernateTemplate;
 
     @Autowired
@@ -26,14 +26,12 @@ public class UserDAOImpl implements UserDAO
     public void saveUser(User user)
     {
         hibernateTemplate.saveOrUpdate(user);
-
     }
 
     @Transactional(readOnly = false)
     public void deleteUser(User user)
     {
         hibernateTemplate.delete(user);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -47,5 +45,4 @@ public class UserDAOImpl implements UserDAO
     {
         return hibernateTemplate.get(User.class, userId);
     }
-
 }

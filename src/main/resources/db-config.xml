@@ -39,5 +39,8 @@
 	<bean id="userDAO" class="com.vidya.dao.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="tradeDAO" class="com.vidya.dao.TradeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<tx:annotation-driven />
 </beans>

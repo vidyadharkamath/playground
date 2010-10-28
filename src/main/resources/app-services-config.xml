@@ -9,5 +9,7 @@
 	<bean id="userService" class="com.vidya.services.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
-
+	<bean id="tradeService" class="com.vidya.services.TradeServiceImpl">
+		<property name="tradeDAO" ref="tradeDAO"></property>
+	</bean>
 </beans>

@@ -6,12 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity
-@Table(name = "trades")
+@Entity(name = "trades")
+@NamedQueries( {
+        @NamedQuery(name = "Trade.findAll", query = " SELECT t FROM trades t"),
+        @NamedQuery(name = "Trade.findById", query = " SELECT t FROM trades t where t.id = :id"),
+        @NamedQuery(name = "Trade.findByDate", query = "SELECT t FROM trades t where t.date between :date1 and :date2") })
 public class Trade implements java.io.Serializable
 {
     private static final long serialVersionUID = 1L;
@@ -26,8 +30,8 @@ public class Trade implements java.io.Serializable
     private String type;
     private String ticker;
     private float unitPrice;
-    private float numShares;
-    private float comission;
+    private float quantity;
+    private float commission;
 
     public Date getDate()
     {
@@ -69,26 +73,6 @@ public class Trade implements java.io.Serializable
         this.unitPrice = unitPrice;
     }
 
-    public float getNumShares()
-    {
-        return numShares;
-    }
-
-    public void setNumShares(float numShares)
-    {
-        this.numShares = numShares;
-    }
-
-    public float getComission()
-    {
-        return comission;
-    }
-
-    public void setComission(float comission)
-    {
-        this.comission = comission;
-    }
-
     public void setId(String id)
     {
         this.id = id;
@@ -97,6 +81,26 @@ public class Trade implements java.io.Serializable
     public String getId()
     {
         return id;
+    }
+
+    public void setQuantity(float quantity)
+    {
+        this.quantity = quantity;
+    }
+
+    public float getQuantity()
+    {
+        return quantity;
+    }
+
+    public void setCommission(float commission)
+    {
+        this.commission = commission;
+    }
+
+    public float getCommission()
+    {
+        return commission;
     }
 
 }

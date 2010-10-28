@@ -2,8 +2,6 @@ package com.vidya.dao;
 
 import java.util.List;
 
-import org.hibernate.SessionFactory;
-import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,14 +9,8 @@ import com.vidya.model.User;
 
 @Repository("userDao")
 @Transactional
-public class UserDAOImpl implements UserDAO
+public class UserDAOImpl extends BaseDAO implements UserDAO
 {
-    private HibernateTemplate hibernateTemplate;
-
-    public void setSessionFactory(SessionFactory sessionFactory)
-    {
-        hibernateTemplate = new HibernateTemplate(sessionFactory);
-    }
 
     @Transactional(readOnly = false)
     public void saveUser(User user)

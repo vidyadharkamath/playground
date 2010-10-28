@@ -3,7 +3,7 @@
 
 <html>
 <head>
-<title>Hello :: Playground Application</title>
+<title>Test Application</title>
 </head>
 <body>
 <h1>Registration Status</h1> 

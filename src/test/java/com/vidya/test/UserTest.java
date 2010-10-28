@@ -33,39 +33,39 @@ public class UserTest
 
         user.setName("Adit");
         dao.saveUser(user);
-        Assert.assertEquals(expectedResult, dao.getAllUser(new User()).size());
+        Assert.assertEquals(expectedResult, dao.getAllUsers());
     }
 
     @Test
     public void testRetrieveData()
     {
-        List<User> userList = dao.getAllUser(new User());
+        List<User> userList = dao.getAllUsers();
         Assert.assertEquals(1, userList.size());
         User userExpected = userList.get(0);
-        User userResult = dao.selectUserById(userExpected.getId());
+        User userResult = dao.getUserByUserId(userExpected.getId());
         Assert.assertEquals(userExpected.getId(), userResult.getId());
     }
 
     @Test
     public void testUpdateData()
     {
-        List<User> userList = dao.getAllUser(new User());
+        List<User> userList = dao.getAllUsers();
         Assert.assertEquals(1, userList.size());
         User userExpected = userList.get(0);
         userExpected.setName("Singgih");
         dao.saveUser(userExpected);
-        User userResult = dao.selectUserById(userExpected.getId());
+        User userResult = dao.getUserByUserId(userExpected.getId());
         Assert.assertEquals(userExpected.getName(), userResult.getName());
     }
 
     @Test
     public void testDeleteData()
     {
-        List<User> userList = dao.getAllUser(new User());
+        List<User> userList = dao.getAllUsers();
         Assert.assertEquals(1, userList.size());
         User userExpected = userList.get(0);
         dao.deleteUser(userExpected);
-        User userResult = dao.selectUserById(userExpected.getId());
+        User userResult = dao.getUserByUserId(userExpected.getId());
         Assert.assertEquals(userResult, null);
     }
 }

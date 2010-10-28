@@ -8,9 +8,11 @@ public interface UserDAO
 {
     public void saveUser(User user);
 
-    public List<User> getAllUser(User user);
+    public User getUserByUserId(String userId);
 
-    public User selectUserById(String userId);
+    public User getUserByUserName(String userName);
 
     public void deleteUser(User user);
+
+    public List<User> getAllUsers();
 }

@@ -3,7 +3,6 @@ package com.vidya.dao;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +15,6 @@ public class UserDAOImpl implements UserDAO
 {
     private HibernateTemplate hibernateTemplate;
 
-    @Autowired
     public void setSessionFactory(SessionFactory sessionFactory)
     {
         hibernateTemplate = new HibernateTemplate(sessionFactory);
@@ -34,15 +32,23 @@ public class UserDAOImpl implements UserDAO
         hibernateTemplate.delete(user);
     }
 
-    @SuppressWarnings("unchecked")
-    public List<User> getAllUser(User user)
+    @Override
+    public List<User> getAllUsers()
     {
-        return (List<User>) hibernateTemplate.find("from "
-                + User.class.getName());
+        return (List<User>) hibernateTemplate.findByNamedQuery("User.findAll");
     }
 
-    public User selectUserById(String userId)
+    @Override
+    public User getUserByUserId(String userId)
     {
-        return hibernateTemplate.get(User.class, userId);
+        return (User) hibernateTemplate.findByNamedQuery("User.findById",
+                userId);
+    }
+
+    @Override
+    public User getUserByUserName(String userName)
+    {
+        return (User) hibernateTemplate.findByNamedQuery("User.findByUserName",
+                userName);
     }
 }

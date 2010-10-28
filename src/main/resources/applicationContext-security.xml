@@ -11,24 +11,30 @@
 
 	<security:http auto-config="true">
 		<!-- Restrict URLs based on role -->
-		<security:intercept-url pattern="/login*"			access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<security:intercept-url pattern="/logoutSuccess*"			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/login*"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/logoutSuccess*"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<security:intercept-url pattern="/**" access="ROLE_USER" />
 
 		<!-- Override default login and logout pages -->
-		<security:form-login login-page="/login.html"	login-processing-url="/j_spring_security_check" default-target-url="/index.jsp" authentication-failure-url="/login.html?login_error=1" />
-		<security:logout logout-url="/logout.html"		logout-success-url="/logoutSuccess.html" />
+		<security:form-login login-page="/login.html"
+			login-processing-url="/j_spring_security_check" default-target-url="/index.jsp"
+			authentication-failure-url="/login.html?login_error=1" />
+		<security:logout logout-url="/logout.html"
+			logout-success-url="/logoutSuccess.html" />
 	</security:http>
 
 
-	<security:authentication-manager >
-	<security:authentication-provider user-service-ref= "userAuthenticationDao"/> 
-		</security:authentication-manager>
-	
+	<security:authentication-manager>
+		<security:authentication-provider
+			user-service-ref="userAuthenticationDao" />
+	</security:authentication-manager>
+
 	<bean id="userAuthenticationDao"
 		class="org.springframework.security.core.userdetails.memory.InMemoryDaoImpl">
 		<property name="userMap">
-				<value>vidya=vidya,ROLE_USER</value>
+			<value>vidya=vidya,ROLE_USER</value>
 		</property>
 	</bean>
 </beans>

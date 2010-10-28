@@ -4,13 +4,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity
-@Table(name = "users")
-public class User
+@Entity(name = "users")
+@NamedQueries( {
+        @NamedQuery(name = "User.findAll", query = " SELECT u FROM users u"),
+        @NamedQuery(name = "User.findByName", query = " SELECT u FROM users u where u.name = :name"),
+        @NamedQuery(name = "User.findById", query = " SELECT u FROM users u where u.id = :id") })
+public class User implements java.io.Serializable
 {
     @Id
     @GeneratedValue(generator = "system-uuid")

@@ -13,5 +13,7 @@
 	<bean name="/userList.do" class="com.vidya.controllers.UserListController">
 		<property name="userService" ref="userService"></property>
 	</bean>
-
+<bean name="/registerUser.do" class="com.vidya.controllers.UserRegisterController">
+		<property name="userService" ref="userService"></property>
+	</bean>
 </beans>

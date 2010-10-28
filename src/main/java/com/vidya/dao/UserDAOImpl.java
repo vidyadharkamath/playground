@@ -32,6 +32,7 @@ public class UserDAOImpl implements UserDAO
         hibernateTemplate.delete(user);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<User> getAllUsers()
     {

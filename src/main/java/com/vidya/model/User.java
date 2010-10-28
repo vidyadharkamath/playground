@@ -16,6 +16,11 @@ import org.hibernate.annotations.GenericGenerator;
         @NamedQuery(name = "User.findById", query = " SELECT u FROM users u where u.id = :id") })
 public class User implements java.io.Serializable
 {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")

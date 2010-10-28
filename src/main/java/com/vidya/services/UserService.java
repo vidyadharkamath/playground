@@ -9,4 +9,6 @@ public interface UserService
 
     public List<User> getAllUsers();
 
+    public void saveOrUpdate(User user);
+
 }

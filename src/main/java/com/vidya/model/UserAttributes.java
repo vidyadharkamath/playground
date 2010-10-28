@@ -10,8 +10,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "userAttributes")
-public class UserAttributes
+public class UserAttributes implements java.io.Serializable
 {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")

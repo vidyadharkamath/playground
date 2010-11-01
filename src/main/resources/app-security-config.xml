@@ -11,6 +11,7 @@
 	<security:http auto-config="true">
 	
 		<security:intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/register*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
       	<security:intercept-url pattern="/css/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<security:intercept-url pattern="/scripts/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />

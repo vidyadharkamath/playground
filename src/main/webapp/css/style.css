@@ -9,7 +9,7 @@
 	;
 
 #content table,#content td,#content th {
-	border-color: green;
+	border-color: firebrick;
 	border-style: solid;
 }
 
@@ -23,12 +23,12 @@
 	border-style: solid;
 	margin: 0;
 	padding: 4px;
-	border-color: green;
+	border-color: firebrick;
 	background-color: #FFC;
 }
 
 #content th {
-	background-color: green;
+	background-color: firebrick;
 	color: white;
 }
 

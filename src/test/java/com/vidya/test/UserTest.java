@@ -31,7 +31,7 @@ public class UserTest
         int expectedResult = 1;
         User user = new User();
 
-        user.setName("Adit");
+        user.setUserName("Adit");
         dao.saveUser(user);
         Assert.assertEquals(expectedResult, dao.getAllUsers());
     }
@@ -52,10 +52,11 @@ public class UserTest
         List<User> userList = dao.getAllUsers();
         Assert.assertEquals(1, userList.size());
         User userExpected = userList.get(0);
-        userExpected.setName("Singgih");
+        userExpected.setUserName("Singgih");
         dao.saveUser(userExpected);
         User userResult = dao.getUserByUserId(userExpected.getId());
-        Assert.assertEquals(userExpected.getName(), userResult.getName());
+        Assert.assertEquals(userExpected.getUserName(), userResult
+                .getUserName());
     }
 
     @Test

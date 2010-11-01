@@ -62,14 +62,14 @@ public final class userList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<html>\n");
       out.write("<head>\n");
-      out.write("<link rel=\"stylesheet\" href=\"css/style.css\"     type=\"text/css\"> \n");
-      out.write("\n");
+      out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\"></link>\n");
       out.write("<title>Test Application</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("<h1>Test Application</h1>\n");
       out.write("<p>UserList .</p>\n");
-      out.write("<table border=1 >\n");
+      out.write("<div id=\"content\">\n");
+      out.write("<table align=\"center\" >\n");
       out.write("<tr>\n");
       out.write("<th> Id</th><th>Name</th><th>Password</th></tr>\n");
       out.write("\n");
@@ -78,6 +78,7 @@ public final class userList_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("\n");
       out.write("</table>\n");
+      out.write("</div>\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -123,6 +124,7 @@ public final class userList_jsp extends org.apache.jasper.runtime.HttpJspBase
           if (_jspx_meth_c_005fout_005f2(_jspx_th_c_005fforEach_005f0, _jspx_page_context, _jspx_push_body_count_c_005fforEach_005f0))
             return true;
           out.write("</td>\n");
+          out.write("\t\n");
           out.write("\t</tr>\n");
           out.write("\t\n");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();

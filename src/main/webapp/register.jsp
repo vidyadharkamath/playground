@@ -3,10 +3,10 @@
 
 <html>
 <head>
-<title>Test Application</title>
+<title>Playground</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"></link>
 </head>
 <body>
-<h1>Registration Status</h1> 
+<h1>User Registration Information Screen</h1> 
 </body>
 </html>

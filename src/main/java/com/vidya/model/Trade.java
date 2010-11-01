@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -26,6 +28,7 @@ public class Trade implements java.io.Serializable
     @Column(name = "id")
     private String id;
 
+    @Temporal(TemporalType.DATE)
     private Date date;
     private String type;
     private String ticker;

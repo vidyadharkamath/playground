@@ -1,10 +1,38 @@
- 
-table, td, th
-{
-border:1px solid green;
+@import url("css/calendar.css");
+
+@import
+	url("http://yui.yahooapis.com/2.8.2r1/build/container/assets/skins/sam/container.css")
+	;
+
+@import
+	url("http://yui.yahooapis.com/2.8.2r1/build/calendar/assets/skins/sam/calendar.css")
+	;
+
+#content table,#content td,#content th {
+	border-color: green;
+	border-style: solid;
 }
-th
-{
-background-color:green;
-color:white;
-} 
+
+#content table {
+	border-width: 0 0 0px 0px;
+	empty-cells: show
+}
+
+#content td,#content th {
+	border-width: 1px 0px 0 0;
+	border-style: solid;
+	margin: 0;
+	padding: 4px;
+	border-color: green;
+	background-color: #FFC;
+}
+
+#content th {
+	background-color: green;
+	color: white;
+}
+
+#content div {
+	border: 1px solid #363;
+	margin-bottom: 40px;
+}

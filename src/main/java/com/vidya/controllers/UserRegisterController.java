@@ -1,28 +1,40 @@
 package com.vidya.controllers;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Map;
 
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.AbstractController;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.vidya.model.User;
 import com.vidya.services.UserService;
 
-public class UserRegisterController extends AbstractController
+@Controller
+@RequestMapping("/register.do")
+public class UserRegisterController
 {
     private UserService userService;
 
-    @Override
-    protected ModelAndView handleRequestInternal(HttpServletRequest request,
-            HttpServletResponse response) throws Exception
+    @RequestMapping(method = RequestMethod.POST)
+    public String processForm(@ModelAttribute("user") User user,
+            BindingResult result, Map<String, Object> model)
+    {
+        userService.saveOrUpdate(user);
+        List<User> users = userService.getAllUsers();
+        model.put("users", users);
+
+        return "redirect:trade/list.do";
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String showForm(Map<String, Object> model)
     {
         User user = new User();
-        user.setName("vidyadhar");
-        user.setPassword("vidyadhar");
-        userService.saveOrUpdate(user);
-
-        return new ModelAndView("registrationStatus");
+        model.put("user", user);
+        return "register";
     }
 
     public UserService getUserService()

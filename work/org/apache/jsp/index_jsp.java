@@ -50,42 +50,25 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("<html>\n");
-      out.write("<head>\n");
-      out.write("<title>Test Application</title>\n");
-      out.write("<link rel=\"stylesheet\" href=\"css/style.css\"     type=\"text/css\"> \n");
-      out.write("</head>\n");
-      out.write("<body>\n");
-      out.write("<h2>index jsp</h2>\n");
-      out.write("<table>\n");
-      out.write("<tr>\n");
-      out.write("<th>Firstname</th>\n");
-      out.write("<th>Lastname</th>\n");
-      out.write("<th>Savings</th>\n");
-      out.write("</tr>\n");
-      out.write("<tr>\n");
-      out.write("<td>Peter</td>\n");
-      out.write("<td>Griffin</td>\n");
-      out.write("<td>$100</td>\n");
-      out.write("</tr>\n");
-      out.write("<tr>\n");
-      out.write("<td>Lois</td>\n");
-      out.write("<td>Griffin</td>\n");
-      out.write("<td>$150</td>\n");
-      out.write("</tr>\n");
-      out.write("<tr>\n");
-      out.write("<td>Joe</td>\n");
-      out.write("<td>Swanson</td>\n");
-      out.write("<td>$300</td>\n");
-      out.write("</tr>\n");
-      out.write("<tr>\n");
-      out.write("<td>Cleveland</td>\n");
-      out.write("<td>Brown</td>\n");
-      out.write("<td>$250</td>\n");
-      out.write("</tr>\n");
-      out.write("</table>\n");
-      out.write("</body>\n");
-      out.write("</html>\n");
+      out.write('\r');
+      out.write('\n');
+      if (_jspx_meth_tiles_005finsertDefinition_005f0(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<html>\r\n");
+      out.write("<body>\r\n");
+      out.write("<h1> index.jsp page</h1>\r\n");
+      out.write("\r\n");
+      out.write("<a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/login.do\" > Login Here </a>\r\n");
+      out.write("<a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/register.do\" > Register Here  </a>\r\n");
+      out.write("</body></html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -96,5 +79,20 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_tiles_005finsertDefinition_005f0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  tiles:insertDefinition
+    org.apache.tiles.jsp.taglib.InsertDefinitionTag _jspx_th_tiles_005finsertDefinition_005f0 = new org.apache.tiles.jsp.taglib.InsertDefinitionTag();
+    org.apache.jasper.runtime.AnnotationHelper.postConstruct(_jsp_annotationprocessor, _jspx_th_tiles_005finsertDefinition_005f0);
+    _jspx_th_tiles_005finsertDefinition_005f0.setJspContext(_jspx_page_context);
+    // /index.jsp(2,0) name = name type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_tiles_005finsertDefinition_005f0.setName(".mainTemplate");
+    _jspx_th_tiles_005finsertDefinition_005f0.doTag();
+    org.apache.jasper.runtime.AnnotationHelper.preDestroy(_jsp_annotationprocessor, _jspx_th_tiles_005finsertDefinition_005f0);
+    return false;
   }
 }

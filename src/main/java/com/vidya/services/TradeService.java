@@ -10,4 +10,6 @@ public interface TradeService
 
     public void saveOrUpdate(Trade trade);
 
+    public void delete(Trade trade);
+
 }

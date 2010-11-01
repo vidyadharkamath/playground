@@ -30,4 +30,11 @@ public class TradeServiceImpl implements TradeService
     {
         tradeDAO.saveOrUpdate(trade);
     }
+
+    @Override
+    public void delete(Trade trade)
+    {
+        tradeDAO.delete(trade);
+
+    }
 }

@@ -9,29 +9,14 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
 	<mvc:annotation-driven />
 	<context:component-scan base-package="com.vidya.controllers" />
 
-	<bean id="simpleUrlMapping"
-		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 
-		<property name="mappings">
-			<props>
-				<prop key="/userList.do">userListController</prop>
-				<prop key="/registerUser.do">userRegisterController</prop>
-
-			</props>
-		</property>
-	</bean>
-
-
-	<bean id="userListController" class="com.vidya.controllers.UserListController">
-		<property name="userService" ref="userService"></property>
-	</bean>
 	<bean id="userRegisterController" class="com.vidya.controllers.UserRegisterController">
 		<property name="userService" ref="userService"></property>
 	</bean>
-<bean id="addTradeController" class="com.vidya.controllers.AddTradeController">
+
+	<bean id="tradeController" class="com.vidya.controllers.TradeController">
 		<property name="tradeService" ref="tradeService"></property>
 	</bean>
-
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -43,6 +28,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
 		</property>
 	</bean>
 
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"
+		p:definitions="/WEB-INF/tiles-defs/templates.xml" />
 
 
 </beans>

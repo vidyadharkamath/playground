@@ -14,4 +14,11 @@
 </table>
 </form>
 </body>
+<h1> Test panel-- the following should not work from here</h1>
+
+<a href="${pageContext.request.contextPath}/login.do" > Login Here </a>
+<br/>
+<a href="${pageContext.request.contextPath}/register.do" > Register Here  </a>
+<br/><a href="${pageContext.request.contextPath}/trade/list.do">  List my Trades</a>
+
 </html>

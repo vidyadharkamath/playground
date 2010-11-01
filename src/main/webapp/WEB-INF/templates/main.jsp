@@ -7,8 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><fmt:message key="site.title"/></title>
-<link rel="stylesheet" type="text/css" href="<c:url value="/css/main.css"/>" />
+<title><fmt:message key="title"/></title>
 </head>
 <body>
 <div id="header">

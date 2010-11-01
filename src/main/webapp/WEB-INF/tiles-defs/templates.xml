@@ -7,6 +7,9 @@
 
 	<!-- Default Main Template -->
 	<definition name=".mainTemplate" template="/WEB-INF/templates/main.jsp">
+	<put-attribute name="title" value="Playground"/>
+	 <put-attribute name="body" type="string"/>
+	
 		<put-attribute name="header" value="/WEB-INF/templates/header.jsp" /> 
 	</definition>
 

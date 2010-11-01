@@ -65,9 +65,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("/login.do\" > Login Here </a>\r\n");
+      out.write("<br/>\r\n");
       out.write("<a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("/register.do\" > Register Here  </a>\r\n");
+      out.write("<br/><a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/trade/list.do\">  List my Trades</a>\r\n");
       out.write("</body></html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

@@ -1,6 +1,5 @@
 package com.vidya.controllers;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -23,8 +22,6 @@ public class UserRegisterController
             BindingResult result, Map<String, Object> model)
     {
         userService.saveOrUpdate(user);
-        List<User> users = userService.getAllUsers();
-        model.put("users", users);
 
         return "redirect:trade/list.do";
     }

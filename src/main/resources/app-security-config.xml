@@ -18,12 +18,11 @@
 		
 		<security:intercept-url pattern="/**" access="ROLE_USER" /> 
     
-		<security:form-login login-page="/login.do" default-target-url="/index.jsp" 
+		<security:form-login login-page="/login.do" default-target-url="/trade/list.do" 
                              authentication-failure-url="/login.do?login_error=1" />
 		<security:logout logout-url="/logout.do" logout-success-url="/login.do" />
 
 	</security:http>
-
 
 
 	<security:authentication-manager>

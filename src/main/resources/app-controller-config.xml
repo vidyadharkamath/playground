@@ -18,7 +18,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
 		<property name="tradeService" ref="tradeService"></property>
 	</bean>
 
-	<bean id="viewResolver"
+<!-- 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/jsp/</value>
@@ -27,10 +27,22 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
 			<value>.jsp</value>
 		</property>
 	</bean>
-
+	-->
+<bean id="viewResolver"
+	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<property name="viewClass">
+		<value>
+			org.springframework.web.servlet.view.tiles2.TilesView
+		</value>
+	</property>
+	 
+</bean>
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"
-		p:definitions="/WEB-INF/tiles-defs/templates.xml" />
+		p:definitions="/WEB-INF/tiles.xml" />
 
-
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
 </beans>

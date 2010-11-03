@@ -1,38 +1,23 @@
-@import url("css/calendar.css");
+@import
+  url("http://localhost/2.8.2r1/build/container/assets/skins/sam/container.css")
+  ;
 
 @import
-	url("http://yui.yahooapis.com/2.8.2r1/build/container/assets/skins/sam/container.css")
-	;
+  url("http://localhost/2.8.2r1/build/calendar/assets/skins/sam/calendar.css")
+  ;
 
-@import
-	url("http://yui.yahooapis.com/2.8.2r1/build/calendar/assets/skins/sam/calendar.css")
-	;
-
-#content table,#content td,#content th {
-	border-color: firebrick;
-	border-style: solid;
+table.sortable {
+  table-layout: fixed;
 }
 
-#content table {
-	border-width: 0 0 0px 0px;
-	empty-cells: show
+/* Sortable tables */
+table.sortable thead {
+  background-color: #eee;
+  color: #666666;
+  font-weight: bold;
+  cursor: default;
+  font: 13px Verdana, Geneva, Arial, Helvetica, sans-serif;
+  width: 220px;
+  height: 30px;
 }
 
-#content td,#content th {
-	border-width: 1px 0px 0 0;
-	border-style: solid;
-	margin: 0;
-	padding: 4px;
-	border-color: firebrick;
-	background-color: #FFC;
-}
-
-#content th {
-	background-color: firebrick;
-	color: white;
-}
-
-#content div {
-	border: 1px solid #363;
-	margin-bottom: 40px;
-}

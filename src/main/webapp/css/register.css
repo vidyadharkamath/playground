@@ -1,0 +1,36 @@
+#signup table {  
+ background-color: #F9FBFD;  
+ color: #000000;  
+ width: 440px;  
+ border: 1px solid #D7E5F2;  
+ border-collapse: collapse;  
+}  
+ 
+#signup td {  
+ border: 1px solid #D7E5F2;  
+ padding-left: 4px;  
+}
+
+#signup .labelcell {    
+ font: 13px Verdana, Geneva, Arial, Helvetica, sans-serif;    
+ color: #3670A7;    
+ background-color: transparent;    
+ width: 220px;    
+ height: 30px;
+}    
+   
+#signup .fieldcell {    
+ background-color: #F2F7FB;    
+ color: #000000;    
+ text-align: right;    
+ margin-right: 0px;    
+ padding-right: 0px;    
+}    
+
+.buttons {  
+ font: 13px Verdana, Geneva, Arial, Helvetica, sans-serif;    
+ background-color: #333333;  
+ color: #FFFFFF;  
+ margin-right: 6px;  
+ margin-top:6px;
+}

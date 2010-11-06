@@ -7,10 +7,10 @@
 <html>
 <head>
 <script type="text/javascript"
-  src="http://localhost/2.8.2r1/build/utilities/utilities.js"
+  src="${pageContext.request.contextPath}/scripts/2.8.2r1/build/utilities/utilities.js"
 ></script>
 <script type="text/javascript"
-  src="http://localhost/2.8.2r1/build/calendar/calendar-min.js"
+  src="${pageContext.request.contextPath}/scripts/2.8.2r1/build/calendar/calendar-min.js"
 ></script>
 <script type="text/javascript"
   src="${pageContext.request.contextPath}/scripts/calendar.js"
@@ -22,18 +22,18 @@
 
 <!-- Sam Skin CSS for TabView -->
 <link rel="stylesheet" type="text/css"
-  href="http://localhost/2.8.2r1/build/tabview/assets/skins/sam/tabview.css"
+  href="${pageContext.request.contextPath}/scripts/2.8.2r1/build/tabview/assets/skins/sam/tabview.css"
 >
 <!-- JavaScript Dependencies for Tabview: -->
 <script
-  src="http://localhost/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"
+  src="${pageContext.request.contextPath}/scripts/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"
 ></script>
 <script
-  src="http://localhost/2.8.2r1/build/element/element-min.js"
+  src="${pageContext.request.contextPath}/scripts/2.8.2r1/build/element/element-min.js"
 ></script>
 <!-- Source file for TabView -->
 <script
-  src="http://localhost/2.8.2r1/build/tabview/tabview-min.js"
+  src="${pageContext.request.contextPath}/scripts/2.8.2r1/build/tabview/tabview-min.js"
 ></script>
 <script type="text/javascript">
 var myTabs = new YAHOO.widget.TabView("demo");
@@ -78,10 +78,6 @@ var myTabs = new YAHOO.widget.TabView("demo");
     </c:forEach>
   </table>
 </c:if><br>
-</div>
-</div>
-</div>
-<div id="cal1Container"></div>
 <div>
 <table width="100%">
   <tr>
@@ -105,5 +101,10 @@ var myTabs = new YAHOO.widget.TabView("demo");
   </tr>
 </table>
 </div>
+</div>
+</div>
+</div>
+<div id="cal1Container"></div>
+
 </body>
 </html>

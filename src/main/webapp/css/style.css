@@ -1,13 +1,17 @@
 @import
-  url("http://localhost/2.8.2r1/build/container/assets/skins/sam/container.css")
+  url("../scripts/2.8.2r1/build/container/assets/skins/sam/container.css")
   ;
 
 @import
-  url("http://localhost/2.8.2r1/build/calendar/assets/skins/sam/calendar.css")
+  url("../scripts/2.8.2r1/build/calendar/assets/skins/sam/calendar.css")
   ;
 
 table.sortable {
   table-layout: fixed;
+   background-color: #F9FBFD;
+  color: #000000; 
+  border: 1px solid #D7E5F2;
+  border-collapse: collapse;
 }
 
 /* Sortable tables */
@@ -16,8 +20,13 @@ table.sortable thead {
   color: #666666;
   font-weight: bold;
   cursor: default;
-  font: 13px Verdana, Geneva, Arial, Helvetica, sans-serif;
-  width: 220px;
-  height: 30px;
+ 
+  
 }
 
+table.sortable  td {
+  border: 1px solid #D7E5F2;
+  padding-left: 4px;
+}
+
+ 

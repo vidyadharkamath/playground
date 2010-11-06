@@ -24,17 +24,7 @@ public class TradeController
     {
         tradeService.saveOrUpdate(trade);
 
-        List<Trade> trades = tradeService.getAllTrades();
-        model.put("trades", trades);
-
-        List<String> tradeTypes = new ArrayList<String>();
-        tradeTypes.add("Buy");
-        tradeTypes.add("Sell");
-        tradeTypes.add("Short To Sell");
-        tradeTypes.add("Buy To Cover");
-
-        model.put("tradeTypes", tradeTypes);
-        return "tradeList";
+        return "redirect:/trade/list.do";
 
     }
 
@@ -44,17 +34,7 @@ public class TradeController
     {
         tradeService.delete(trade);
 
-        List<Trade> trades = tradeService.getAllTrades();
-        model.put("trades", trades);
-
-        List<String> tradeTypes = new ArrayList<String>();
-        tradeTypes.add("Buy");
-        tradeTypes.add("Sell");
-        tradeTypes.add("Short To Sell");
-        tradeTypes.add("Buy To Cover");
-
-        model.put("tradeTypes", tradeTypes);
-        return "tradeList";
+        return "redirect:/trade/list.do";
 
     }
 

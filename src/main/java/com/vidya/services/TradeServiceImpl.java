@@ -37,4 +37,12 @@ public class TradeServiceImpl implements TradeService
         tradeDAO.delete(trade);
 
     }
+
+    @Override
+    public Trade findTradeById(String id)
+    {
+        return tradeDAO.getTradeById(id);
+
+    }
+
 }

@@ -27,15 +27,15 @@ public class Trade implements java.io.Serializable
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Column(name = "id")
     private String id;
-
     @Temporal(TemporalType.DATE)
     private Date date;
     private String type;
-    private String ticker;
+    private String ticker = "";
     private float unitPrice;
     private float quantity;
     private float commission;
 
+    @Temporal(TemporalType.DATE)
     public Date getDate()
     {
         return date;
@@ -58,7 +58,7 @@ public class Trade implements java.io.Serializable
 
     public String getTicker()
     {
-        return ticker;
+        return ticker.toUpperCase();
     }
 
     public void setTicker(String ticker)

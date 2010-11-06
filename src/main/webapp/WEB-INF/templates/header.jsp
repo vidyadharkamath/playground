@@ -2,7 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<div id="headerTitle"><fmt:message key="site.title"/></div>
+<div id="headerTitle"><h1><fmt:message key="site.title"/></h1></div>
 
 <div class="subHeader">
     <sec:authorize ifAllGranted="ROLE_USER">

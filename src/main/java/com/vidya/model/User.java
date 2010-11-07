@@ -2,13 +2,19 @@ package com.vidya.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -24,7 +30,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class User implements java.io.Serializable, UserDetails
 {
     private static final long serialVersionUID = 1L;
-    private String id;
+
+    private String userId;
     private String userName;
     private String password;
     private String firstName;
@@ -32,6 +39,7 @@ public class User implements java.io.Serializable, UserDetails
     private String email;
     private String zipCode;
 
+    private Collection<Trade> trades = new HashSet<Trade>();
     @Transient
     private Collection<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
 
@@ -44,20 +52,6 @@ public class User implements java.io.Serializable, UserDetails
     public void setPassword(String password)
     {
         this.password = password;
-    }
-
-    public void setId(String id)
-    {
-        this.id = id;
-    }
-
-    @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @Column(name = "id")
-    public String getId()
-    {
-        return id;
     }
 
     public void setUserName(String userName)
@@ -157,4 +151,31 @@ public class User implements java.io.Serializable, UserDetails
         // TODO Auto-generated method stub
         return true;
     }
+
+    public void setTrades(Collection<Trade> trades)
+    {
+        this.trades = trades;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "UserTrades", joinColumns = { @JoinColumn(name = "userId") }, inverseJoinColumns = { @JoinColumn(name = "tradeId") })
+    public Collection<Trade> getTrades()
+    {
+        return trades;
+    }
+
+    public void setUserId(String userId)
+    {
+        this.userId = userId;
+    }
+
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @Column(name = "userId")
+    public String getUserId()
+    {
+        return userId;
+    }
+
 }

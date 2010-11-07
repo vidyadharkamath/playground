@@ -16,17 +16,13 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity(name = "trades")
 @NamedQueries( {
         @NamedQuery(name = "Trade.findAll", query = " SELECT t FROM trades t"),
-        @NamedQuery(name = "Trade.findById", query = " SELECT t FROM trades t where t.id = :id"),
-        @NamedQuery(name = "Trade.findByDate", query = "SELECT t FROM trades t where t.date between :date1 and :date2") })
+        @NamedQuery(name = "Trade.findById", query = " SELECT t FROM trades t where t.id = ?"),
+        @NamedQuery(name = "Trade.findByDate", query = "SELECT t FROM trades t where t.date between ? and ?") })
 public class Trade implements java.io.Serializable
 {
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @Column(name = "id")
-    private String id;
+    private String tradeId;
     @Temporal(TemporalType.DATE)
     private Date date;
     private String type;
@@ -76,16 +72,6 @@ public class Trade implements java.io.Serializable
         this.unitPrice = unitPrice;
     }
 
-    public void setId(String id)
-    {
-        this.id = id;
-    }
-
-    public String getId()
-    {
-        return id;
-    }
-
     public void setQuantity(float quantity)
     {
         this.quantity = quantity;
@@ -104,6 +90,20 @@ public class Trade implements java.io.Serializable
     public float getCommission()
     {
         return commission;
+    }
+
+    public void setTradeId(String tradeId)
+    {
+        this.tradeId = tradeId;
+    }
+
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @Column(name = "tradeId")
+    public String getTradeId()
+    {
+        return tradeId;
     }
 
 }

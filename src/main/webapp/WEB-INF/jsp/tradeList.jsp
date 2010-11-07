@@ -68,10 +68,10 @@ var myTabs = new YAHOO.widget.TabView("demo");
         <td><c:out value="${trade.quantity}"></c:out></td>
         <td><c:out value="${trade.commission}"></c:out></td>
         <td>
-        <form id="${trade.id}" method="POST" action="delete.do"><input
-          id="id" name="id" type="hidden" value="${trade.id}"
+        <form id="${trade.tradeId}" method="POST" action="delete.do"><input
+          id="tradeId" name="tradeId" type="hidden" value="${trade.tradeId}"
         /> <a href="javascript:{}"
-          onclick="document.getElementById('${trade.id}').submit(); return false;"
+          onclick="document.getElementById('${trade.tradeId}').submit(); return false;"
         >Delete</a></form>
         </td>
       </tr>

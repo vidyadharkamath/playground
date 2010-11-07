@@ -18,16 +18,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
 		<property name="tradeService" ref="tradeService"></property>
 	</bean>
 
-<!-- 	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/WEB-INF/jsp/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
-	</bean>
-	-->
+ 
 <bean id="viewResolver"
 	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 	<property name="viewClass">
@@ -45,4 +36,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="messages" />
 	</bean>
+	
+	 <!-- Create a proxy to generate session-scoped shopping carts -->
+    <bean id="user" class="com.vidya.model.User" scope="session">
+    </bean>
+	
 </beans>

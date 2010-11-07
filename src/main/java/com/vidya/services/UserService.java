@@ -10,4 +10,6 @@ public interface UserService
 
     public void saveOrUpdate(User user);
 
+    public List<User> findByUserName(String userName);
+
 }

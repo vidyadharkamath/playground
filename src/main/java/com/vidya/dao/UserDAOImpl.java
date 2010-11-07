@@ -38,10 +38,11 @@ public class UserDAOImpl extends BaseDAO implements UserDAO
                 userId);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public User getUserByUserName(String userName)
+    public List<User> getUserByUserName(String userName)
     {
-        return (User) hibernateTemplate.findByNamedQuery("User.findByUserName",
-                userName);
+        return (List<User>) hibernateTemplate.findByNamedQuery(
+                "User.findByUserName", userName);
     }
 }

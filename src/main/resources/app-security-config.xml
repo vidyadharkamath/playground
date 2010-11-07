@@ -19,21 +19,20 @@
 		<security:intercept-url pattern="/**" access="ROLE_USER" /> 
     
 		<security:form-login login-page="/login.do" default-target-url="/trade/list.do" 
-                             authentication-failure-url="/login.do?login_error=1" />
-		<security:logout logout-url="/logout.do" logout-success-url="/login.do" />
+                           always-use-default-target="true"   authentication-failure-url="/login.do?authfailed=true"/>
+		<security:logout invalidate-session="true" logout-url="/logout.do" logout-success-url="/login.do?loggedout=true" />
+ 	</security:http>
 
-	</security:http>
 
+	<security:authentication-manager><security:authentication-provider  user-service-ref="userService">
+<!--    <security:password-encoder hash="md5" />-->
+<!--    <security:user-service>-->
+<!--        <security:user name="vidya" password="4dc13c8aa6371cbcb715d66f351ca293" -->
+<!--                       authorities="ROLE_USER" />-->
+<!--        <security:user name="buntu" password="0b1388b99d4699ee9be2f05779ff737c" -->
+<!--                       authorities="ROLE_USER" />-->
+<!--    </security:user-service>-->
+	 
+</security:authentication-provider></security:authentication-manager>
 
-	<security:authentication-manager>
-		<security:authentication-provider
-			user-service-ref="userAuthenticationDao" />
-	</security:authentication-manager>
-
-	<bean id="userAuthenticationDao"
-		class="org.springframework.security.core.userdetails.memory.InMemoryDaoImpl">
-		<property name="userMap">
-			<value>vidya=vidya,ROLE_USER</value>
-		</property>
-	</bean>
 </beans>

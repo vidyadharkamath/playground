@@ -3,7 +3,6 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
 <html>
 <head>
 <script type="text/javascript"
@@ -19,7 +18,6 @@
   href="${pageContext.request.contextPath}/css/style.css"
 ></link>
 <script src="${pageContext.request.contextPath}/scripts/sorttable.js"></script>
-
 <!-- Sam Skin CSS for TabView -->
 <link rel="stylesheet" type="text/css"
   href="${pageContext.request.contextPath}/scripts/2.8.2r1/build/tabview/assets/skins/sam/tabview.css"
@@ -40,12 +38,14 @@ var myTabs = new YAHOO.widget.TabView("demo");
 </script>
 </head>
 <body class="yui-skin-sam">
+
+ 
 <div id="demo" class="yui-navset">
 <ul class="yui-nav">
   <li class="selected"><a href="#tab1"><em>Transactions</em></a></li>
-  <li><a href="#tab2"><em>Performance</em></a></li>
-  <li><a href="#tab3"><em>Reports</em></a></li>
-   <li><a href="#tab3"><em>Settings</em></a></li>
+  <li><a href="Performance"><em>Performance</em></a></li>
+  <li><a href="Reports"><em>Reports</em></a></li>
+  <li><a href="Settings"><em>Settings</em></a></li>
 </ul>
 <div class="yui-content">
 <div id="tab1"><c:if test="${fn:length(trades)>0}">
@@ -105,6 +105,5 @@ var myTabs = new YAHOO.widget.TabView("demo");
 </div>
 </div>
 <div id="cal1Container"></div>
-
 </body>
 </html>

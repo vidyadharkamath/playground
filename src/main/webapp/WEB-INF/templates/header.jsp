@@ -6,6 +6,7 @@
 
 <div class="subHeader">
     <sec:authorize ifAllGranted="ROLE_USER">
-        <div align="right"><a href="<c:url value="/logout.do"/>"><fmt:message key="button.logout"/></a></div>
+        <div align="right">Hello  <c:out value="${userName}"></c:out> 
+        &nbsp;&nbsp;&nbsp;<a href="<c:url value="/logout.do"/>"><fmt:message key="button.logout"/></a></div>
     </sec:authorize>
 </div>

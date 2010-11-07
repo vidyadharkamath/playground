@@ -1,3 +1,6 @@
+<%@ page session="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <title>Login</title>
@@ -13,6 +16,17 @@
 <br/><br/><br/><br/>
 <center>
 <div align="center">
+<c:if test="${not empty param.authfailed}">
+    <span id="infomessage" class="errormessage" >
+    Login failed due to: <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
+    </span>
+</c:if>
+<c:if test="${not empty param.loggedout}">
+    <span id="infomessage" class="successmessage">
+    You have been successfully logged out.
+    </span>
+</c:if>
+
 <form id="login" name="f" action="j_spring_security_check" method="POST">
 <table>
   <tr>

@@ -7,8 +7,7 @@
   ;
 
 table.sortable {
-  table-layout: fixed;
-   background-color: #F9FBFD;
+  table-layout: fixed; background-color: transparent;    
   color: #000000; 
   border: 1px solid #D7E5F2;
   border-collapse: collapse;
@@ -18,15 +17,12 @@ table.sortable {
 table.sortable thead {
   background-color: #eee;
   color: #666666;
-  font-weight: bold;
-  cursor: default;
- 
-  
+  font-weight: bold;  
 }
 
 table.sortable  td {
   border: 1px solid #D7E5F2;
-  padding-left: 4px;
+  padding-left: 4px;  
 }
 
  

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,6 +43,21 @@ public class TradeController
     @RequestMapping(value = "/trade/list.do", method = RequestMethod.GET)
     public String showForm(Map<String, Object> model)
     {
+        Object principal = SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+
+        String username;
+        if (principal instanceof UserDetails)
+        {
+            username = ((UserDetails) principal).getUsername();
+        }
+        else
+        {
+            username = principal.toString();
+        }
+
+        model.put("userName", username);
+
         Trade trade = new Trade();
         model.put("trade", trade);
 

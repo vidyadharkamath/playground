@@ -28,8 +28,8 @@ If you already have an account, you can  <a href="${pageContext.request.contextP
     </td>
   </tr>
   <tr>
-    <td class="labelcell"><b><label for="zip">Zipcode<sup>*</sup></label></b></td>
-    <td class="fieldcell"><input class="text" type="text" name="zip" value="" size="30"   maxlength="30" 
+    <td class="labelcell"><b><label for="zipCode">Zipcode<sup>*</sup></label></b></td>
+    <td class="fieldcell"><input class="text" type="text" name="zipCode" value="" size="30"   maxlength="30" 
     ></td> 
   </tr>
   <tr>
@@ -40,9 +40,9 @@ If you already have an account, you can  <a href="${pageContext.request.contextP
     ></td>
   </tr>
   <tr>
-    <td  class="labelcell"><b><label for="password1">Password<sup>*</sup></label></b> 
+    <td  class="labelcell"><b><label for="password">Password<sup>*</sup></label></b> 
     </td>
-    <td class="fieldcell"><input  type="password" name="password1" size="30"   maxlength="30"  >
+    <td class="fieldcell"><input  type="password" name="password" size="30"   maxlength="30"  >
     </td> 
   </tr>
   <tr>

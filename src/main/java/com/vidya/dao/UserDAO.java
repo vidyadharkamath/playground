@@ -10,7 +10,7 @@ public interface UserDAO
 
     public User getUserByUserId(String userId);
 
-    public User getUserByUserName(String userName);
+    public List<User> getUserByUserName(String userName);
 
     public void deleteUser(User user);
 

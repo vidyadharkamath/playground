@@ -54,12 +54,12 @@ public class User implements java.io.Serializable
         return firstName;
     }
 
-    @Column(name = "LASTNAME")
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
     }
 
+    @Column(name = "LASTNAME")
     public String getLastName()
     {
         return lastName;
@@ -95,7 +95,7 @@ public class User implements java.io.Serializable
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @Column(name = "userId")
+    @Column(name = "USERID", unique = true, nullable = false)
     public String getUserId()
     {
         return userId;

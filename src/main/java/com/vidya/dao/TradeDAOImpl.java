@@ -21,11 +21,12 @@ public class TradeDAOImpl extends BaseDAO implements TradeDAO
                 .findByNamedQuery("Trade.findAll");
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<Trade> getTradeById(String id)
     {
-        return (List<Trade>) hibernateTemplate.findByNamedQuery(
-                "Trade.findById", id);
+
+        return hibernateTemplate.findByNamedQuery("Trade.findById", id);
     }
 
     @Override

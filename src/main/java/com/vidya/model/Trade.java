@@ -23,7 +23,6 @@ public class Trade implements java.io.Serializable
     private static final long serialVersionUID = 1L;
 
     private String tradeId;
-    @Temporal(TemporalType.DATE)
     private Date date;
     private String type;
     private String ticker = "";
@@ -32,6 +31,7 @@ public class Trade implements java.io.Serializable
     private float commission;
 
     @Temporal(TemporalType.DATE)
+    @Column(name = "TRADE_DATE", nullable = false)
     public Date getDate()
     {
         return date;
@@ -42,6 +42,7 @@ public class Trade implements java.io.Serializable
         this.date = date;
     }
 
+    @Column(name = "TYPE", nullable = false)
     public String getType()
     {
         return type;
@@ -52,6 +53,7 @@ public class Trade implements java.io.Serializable
         this.type = type;
     }
 
+    @Column(name = "TICKER", nullable = false)
     public String getTicker()
     {
         return ticker.toUpperCase();
@@ -62,6 +64,7 @@ public class Trade implements java.io.Serializable
         this.ticker = ticker;
     }
 
+    @Column(name = "UNIT_PRICE", nullable = false)
     public float getUnitPrice()
     {
         return unitPrice;
@@ -72,6 +75,7 @@ public class Trade implements java.io.Serializable
         this.unitPrice = unitPrice;
     }
 
+    @Column(name = "QUANTITY", nullable = false)
     public void setQuantity(float quantity)
     {
         this.quantity = quantity;
@@ -82,6 +86,7 @@ public class Trade implements java.io.Serializable
         return quantity;
     }
 
+    @Column(name = "COMMISSION")
     public void setCommission(float commission)
     {
         this.commission = commission;
@@ -100,7 +105,7 @@ public class Trade implements java.io.Serializable
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @Column(name = "tradeId")
+    @Column(name = "TRADE_ID", unique = true, nullable = false)
     public String getTradeId()
     {
         return tradeId;

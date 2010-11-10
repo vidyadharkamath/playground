@@ -1,5 +1,6 @@
 package com.vidya.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,17 +9,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity(name = "trades")
+@Entity
+@Table(name = "trades")
 @NamedQueries( {
-        @NamedQuery(name = "Trade.findAll", query = " SELECT t FROM trades t"),
-        @NamedQuery(name = "Trade.findById", query = " SELECT t FROM trades t where t.tradeId = ?"),
-        @NamedQuery(name = "Trade.findByDate", query = "SELECT t FROM trades t where t.date between ? and ?") })
-public class Trade implements java.io.Serializable
+        @NamedQuery(name = "Trade.findAll", query = "SELECT t FROM Trade t"),
+        @NamedQuery(name = "Trade.findById", query = " SELECT t FROM Trade t where t.tradeId = ?"),
+        @NamedQuery(name = "Trade.findByDate", query = "SELECT t FROM Trade t where t.date between ? and ?") })
+public class Trade implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -111,4 +114,27 @@ public class Trade implements java.io.Serializable
         return tradeId;
     }
 
+    public boolean equals(Object other)
+    {
+        if (this == other)
+            return true;
+        if (!(other instanceof Trade))
+            return false;
+
+        final Trade trade = (Trade) other;
+
+        if (!trade.getTradeId().equals(getTradeId()))
+            return false;
+
+        return true;
+    }
+
+    public int hashCode()
+    {
+        int result = 20;
+
+        result = 29 * result + getTicker().hashCode() + getDate().hashCode();
+
+        return result;
+    }
 }

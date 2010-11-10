@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -24,8 +25,14 @@ public class TradeController extends BaseController
     public String add(@ModelAttribute("trade") Trade trade,
             BindingResult result, Map<String, Object> model)
     {
+        User user = getLoggedInUser();
+        if (user != null)
+        {
+            Set<Trade> trades = user.getTrades();
+            trades.add(trade);
+            userService.saveOrUpdate(user);
+        }
 
-        tradeService.saveOrUpdate(trade);
         return "redirect:/trade/list.do";
 
     }
@@ -34,7 +41,20 @@ public class TradeController extends BaseController
     public String delete(@ModelAttribute("trade") Trade trade,
             BindingResult result, Map<String, Object> model)
     {
+        User user = getLoggedInUser();
+        if (user != null)
+        {
+            Set<Trade> trades = user.getTrades();
 
+            List<Trade> lookedUpTrade = tradeService.findTradeById(trade
+                    .getTradeId());
+            for (int i = 0; i < lookedUpTrade.size(); i++)
+            {
+                trades.remove(lookedUpTrade.get(0));
+            }
+
+            userService.saveOrUpdate(user);
+        }
         return "redirect:/trade/list.do";
 
     }
@@ -46,7 +66,7 @@ public class TradeController extends BaseController
 
         if (user != null)
         {
-            String username = user.getUserName();
+            String username = user.getUsername();
 
             model.put("userName", username);
 

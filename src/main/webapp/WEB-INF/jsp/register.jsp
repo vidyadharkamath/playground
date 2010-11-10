@@ -33,9 +33,9 @@ If you already have an account, you can  <a href="${pageContext.request.contextP
     ></td> 
   </tr>
   <tr>
-    <td class="labelcell"><b><label for="userName">User Name<sup>*</sup></label></b></td>
+    <td class="labelcell"><b><label for="username">User Name<sup>*</sup></label></b></td>
     <td class="fieldcell">
-    <input type="text" name="userName" size="30"   maxlength="30" 
+    <input type="text" name="username" size="30"   maxlength="30" 
       
     ></td>
   </tr>

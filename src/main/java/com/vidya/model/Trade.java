@@ -16,7 +16,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity(name = "trades")
 @NamedQueries( {
         @NamedQuery(name = "Trade.findAll", query = " SELECT t FROM trades t"),
-        @NamedQuery(name = "Trade.findById", query = " SELECT t FROM trades t where t.id = ?"),
+        @NamedQuery(name = "Trade.findById", query = " SELECT t FROM trades t where t.tradeId = ?"),
         @NamedQuery(name = "Trade.findByDate", query = "SELECT t FROM trades t where t.date between ? and ?") })
 public class Trade implements java.io.Serializable
 {

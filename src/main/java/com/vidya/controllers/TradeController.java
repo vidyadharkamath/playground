@@ -44,10 +44,9 @@ public class TradeController extends BaseController
     {
         User user = getLoggedInUser();
 
-        String username;
         if (user != null)
         {
-            username = user.getUsername();
+            String username = user.getUserName();
 
             model.put("userName", username);
 

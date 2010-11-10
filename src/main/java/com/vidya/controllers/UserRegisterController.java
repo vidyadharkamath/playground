@@ -9,13 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.vidya.model.User;
-import com.vidya.services.UserService;
 
 @Controller
 @RequestMapping("/register.do")
 public class UserRegisterController extends BaseController
 {
-    private UserService userService;
 
     @RequestMapping(method = RequestMethod.POST)
     public String processForm(@ModelAttribute("user") User user,
@@ -34,13 +32,4 @@ public class UserRegisterController extends BaseController
         return "register";
     }
 
-    public UserService getUserService()
-    {
-        return userService;
-    }
-
-    public void setUserService(UserService userService)
-    {
-        this.userService = userService;
-    }
 }

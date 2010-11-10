@@ -13,7 +13,7 @@ public interface TradeDAO
 
     public List<Trade> getAllTrades();
 
-    public Trade getTradeById(String id);
+    public List<Trade> getTradeById(String id);
 
     public void getBetween(Date date1, Date date2);
 }

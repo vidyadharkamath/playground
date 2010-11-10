@@ -39,7 +39,7 @@ public class TradeServiceImpl implements TradeService
     }
 
     @Override
-    public Trade findTradeById(String id)
+    public List<Trade> findTradeById(String id)
     {
         return tradeDAO.getTradeById(id);
 

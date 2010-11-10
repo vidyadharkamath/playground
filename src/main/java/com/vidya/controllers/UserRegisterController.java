@@ -13,7 +13,7 @@ import com.vidya.services.UserService;
 
 @Controller
 @RequestMapping("/register.do")
-public class UserRegisterController
+public class UserRegisterController extends BaseController
 {
     private UserService userService;
 

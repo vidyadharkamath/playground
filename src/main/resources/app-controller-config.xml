@@ -15,8 +15,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
 	</bean>
 
 	<bean id="tradeController" class="com.vidya.controllers.TradeController">
-		<property name="tradeService" ref="tradeService"></property>
 		<property name="userService" ref="userService"></property>
+		<property name="tradeService" ref="tradeService"></property>
 	</bean>
 
  

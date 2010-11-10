@@ -42,8 +42,8 @@ public class UserTest
         List<User> userList = dao.getAllUsers();
         Assert.assertEquals(1, userList.size());
         User userExpected = userList.get(0);
-        User userResult = dao.getUserByUserId(userExpected.getId());
-        Assert.assertEquals(userExpected.getId(), userResult.getId());
+        User userResult = dao.getUserByUserId(userExpected.getUserId());
+        Assert.assertEquals(userExpected.getUserId(), userResult.getUserId());
     }
 
     @Test
@@ -54,7 +54,7 @@ public class UserTest
         User userExpected = userList.get(0);
         userExpected.setUserName("Singgih");
         dao.saveUser(userExpected);
-        User userResult = dao.getUserByUserId(userExpected.getId());
+        User userResult = dao.getUserByUserId(userExpected.getUserId());
         Assert.assertEquals(userExpected.getUserName(), userResult
                 .getUserName());
     }
@@ -66,7 +66,7 @@ public class UserTest
         Assert.assertEquals(1, userList.size());
         User userExpected = userList.get(0);
         dao.deleteUser(userExpected);
-        User userResult = dao.getUserByUserId(userExpected.getId());
+        User userResult = dao.getUserByUserId(userExpected.getUserId());
         Assert.assertEquals(userResult, null);
     }
 }

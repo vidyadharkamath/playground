@@ -22,9 +22,10 @@ public class TradeDAOImpl extends BaseDAO implements TradeDAO
     }
 
     @Override
-    public Trade getTradeById(String id)
+    public List<Trade> getTradeById(String id)
     {
-        return (Trade) hibernateTemplate.findByNamedQuery("Trade.findById", id);
+        return (List<Trade>) hibernateTemplate.findByNamedQuery(
+                "Trade.findById", id);
     }
 
     @Override

@@ -12,6 +12,6 @@ public interface TradeService
 
     public void delete(Trade trade);
 
-    public Trade findTradeById(String Id);
+    public List<Trade> findTradeById(String Id);
 
 }

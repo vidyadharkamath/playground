@@ -10,7 +10,7 @@ import com.vidya.model.User;
 import com.vidya.services.UserService;
 
 @Controller
-public class LoginController
+public class LoginController extends BaseController
 {
     private UserService userService;
 

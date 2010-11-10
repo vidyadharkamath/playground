@@ -5,8 +5,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,31 +14,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.vidya.model.Trade;
 import com.vidya.model.User;
 import com.vidya.services.TradeService;
-import com.vidya.services.UserService;
 
 @Controller
-public class TradeController
+public class TradeController extends BaseController
 {
     private TradeService tradeService;
-    private UserService userService;
 
     @RequestMapping(value = "/trade/add.do", method = RequestMethod.POST)
     public String add(@ModelAttribute("trade") Trade trade,
             BindingResult result, Map<String, Object> model)
     {
 
-        Object principal = SecurityContextHolder.getContext()
-                .getAuthentication().getPrincipal();
-
-        if (principal instanceof User)
-        {
-            User user = (User) principal;
-
-            user.getTrades().add(trade);
-
-            userService.saveOrUpdate(user);
-        }
-
+        tradeService.saveOrUpdate(trade);
         return "redirect:/trade/list.do";
 
     }
@@ -49,7 +34,6 @@ public class TradeController
     public String delete(@ModelAttribute("trade") Trade trade,
             BindingResult result, Map<String, Object> model)
     {
-        tradeService.delete(trade);
 
         return "redirect:/trade/list.do";
 
@@ -58,20 +42,16 @@ public class TradeController
     @RequestMapping(value = "/trade/list.do", method = RequestMethod.GET)
     public String showForm(Map<String, Object> model)
     {
-        Object principal = SecurityContextHolder.getContext()
-                .getAuthentication().getPrincipal();
-
-        model.put("trade", new Trade());
+        User user = getLoggedInUser();
 
         String username;
-        if (principal instanceof UserDetails)
+        if (user != null)
         {
-            User user = (User) principal;
             username = user.getUsername();
 
             model.put("userName", username);
 
-            Collection<Trade> trades = user.getTrades();
+            Collection<Trade> trades = tradeService.getAllTrades();
             model.put("trades", trades);
 
             List<String> tradeTypes = new ArrayList<String>();
@@ -82,16 +62,10 @@ public class TradeController
 
             model.put("tradeTypes", tradeTypes);
         }
-        else
-        {
-            username = principal.toString();
-        }
-        return "tradeList";
-    }
 
-    public TradeService getTradeService()
-    {
-        return tradeService;
+        model.put("trade", new Trade());
+
+        return "tradeList";
     }
 
     public void setTradeService(TradeService tradeService)
@@ -99,13 +73,9 @@ public class TradeController
         this.tradeService = tradeService;
     }
 
-    public void setUserService(UserService userService)
+    public TradeService getTradeService()
     {
-        this.userService = userService;
+        return tradeService;
     }
 
-    public UserService getUserService()
-    {
-        return userService;
-    }
 }
